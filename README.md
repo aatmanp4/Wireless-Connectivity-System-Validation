@@ -22,10 +22,6 @@ BLE devices are scanned and RSSI values are captured in a rolling window. Logged
 - Interference drop-offs
 - Stability over time and distance
 
-<h4>BLE Test Setup Diagram</h4>
-<img src="./ble.jpg" alt="RF Test Diagram" width="500"/>
-
-
 ---
 
 ## Technologies Used
@@ -56,6 +52,11 @@ BLE devices are scanned and RSSI values are captured in a rolling window. Logged
 - Introduce EMI (Wi-Fi, motors) and observe drop
 - Rotate DUT at 90°, 180° for orientation impact
 - Repeat each test 3 times for statistical significance
+
+
+###BLE Test Setup Diagram
+<img src="./ble.jpg" alt="RF Test Diagram" width="500"/>
+
 
 ### Post Analysis
 - Visualize RSSI vs. time using Python
