@@ -22,7 +22,9 @@ BLE devices are scanned and RSSI values are captured in a rolling window. Logged
 - Interference drop-offs
 - Stability over time and distance
 
-![RF Test Diagram](./ble.jpg)
+<h4>BLE Test Setup Diagram</h4>
+<img src="./ble.jpg" alt="RF Test Diagram" width="500"/>
+
 
 ---
 
