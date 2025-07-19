@@ -1,38 +1,78 @@
 # Wireless Connectivity System Validation
 
 ## Aim
-Test and validate wireless RF protocols (BLE, UWB) for embedded systems in noisy automotive environments.
+To validate BLE-based wireless communication performance in embedded systems by measuring RSSI, interference margin, range profiles, and signal robustness in real-world scenarios.
+
+---
 
 ## Workflow
-- Perform RF tests in multiple environments
-- Evaluate SNR, BLE range, and RSSI drop-off
-- Coordinate with antenna suppliers
-- Document test logs in diagnostic tool
+1. Set up an embedded device (e.g., ESP32/ECU) to perform active BLE scans.
+2. Log signal strength (RSSI), time, and device MAC address via serial.
+3. Conduct structured RF test scenarios (range, EMI, orientation).
+4. Export BLE scan results to CSV format.
+5. Analyze the data using Python to derive performance metrics and visualize signal strength over time.
+
+---
 
 ## Explanation
-RF systems were validated under controlled conditions to ensure resilience to interference and reliable signal transmission. BLE and UWB modules were tested for range and data integrity.
+In automotive and IoT systems, reliable BLE communication is critical. However, RF environments introduce variables like interference, reflections, and signal degradation. This project simulates real-world BLE usage and validates robustness under test cases like EMI exposure and antenna orientation.
+
+BLE devices are scanned and RSSI values are captured in a rolling window. Logged data is used to assess:
+- Link margin
+- Interference drop-offs
+- Stability over time and distance
+
+---
 
 ## Technologies Used
-- Bluetooth Low Energy (BLE)
-- Ultra-Wideband (UWB)
-- Embedded Linux and ECU tools
-- Diagnostic test framework
+- **BLE Scan API (ESP32/Arduino)**
+- **Serial Logging**
+- **Python 3 (pandas, matplotlib)**
+- **Text-based Test Case Documentation**
 
-## Tools
-- RF Signal Generator
-- Spectrum Analyzer
-- Automotive test bench
-- BMW diagnostic suite
+---
+
+## Tools Used
+- ESP32 or BLE-enabled embedded board
+- Serial monitor / logger (e.g., PuTTY, CoolTerm)
+- Python environment with `pandas`, `matplotlib`
+- Optional: Spectrum analyzer, signal generator for EMI
+
+---
 
 ## Methodology
-- Log data at ECU endpoints
-- Measure attenuation and RSSI under EMI
-- Plot correlation between noise and signal drop
+
+### Embedded Logging
+- Use BLE scanner to detect nearby devices for fixed intervals
+- Filter by RSSI threshold (e.g., -80 dBm)
+- Store each entry with MAC address, name, timestamp, and signal level
+
+### RF Test Scenarios
+- Measure BLE RSSI at distances: 1m, 5m, 10m
+- Introduce EMI (Wi-Fi, motors) and observe drop
+- Rotate DUT at 90°, 180° for orientation impact
+- Repeat each test 3 times for statistical significance
+
+### Post Analysis
+- Visualize RSSI vs. time using Python
+- Compare average values per device
+- Highlight any signal drops > 10 dB
+
+---
 
 ## Observations
-- Certain ECUs caused drop to -85 dBm
-- Strategic antenna placement resolved performance issues
+- Most devices sustained RSSI > -75 dBm up to 5 meters
+- EMI presence (e.g., Wi-Fi router) caused 8–12 dB drop
+- Orientation at 180° reduced RSSI by ~5 dB
+- Clear visual correlation between proximity and signal stability
+
+---
 
 ## Results
-- BLE range extended beyond 10 meters
-- RSSI stabilized at greater than -75 dBm
+- BLE communication validated under test conditions
+- RSSI stability maintained above operational thresholds
+- Performance logs support antenna tuning and layout refinement
+
+---
+
+
