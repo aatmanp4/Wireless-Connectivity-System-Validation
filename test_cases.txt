@@ -1,0 +1,19 @@
+Test Plan: BLE RF Validation - Antenna Placement and Noise Margin
+
+1. Setup:
+   - Device under test: Embedded ECU with BLE
+   - Tools: Spectrum Analyzer, BLE scan logger, Signal Generator
+
+2. Tests:
+   a. Static test at 1m, 5m, 10m
+      - Log RSSI, SNR
+   b. Test in presence of EMI source (motor, Wi-Fi)
+      - Record RSSI drop, calculate interference margin
+   c. Orientation sensitivity test (90°, 180°)
+
+3. Expected Results:
+   - RSSI > -75 dBm at 5m in clean environment
+   - BLE stability > 90% packet detect rate
+   - Max deviation under EMI < 10 dB
+
+4. Record log in CSV format for analysis
