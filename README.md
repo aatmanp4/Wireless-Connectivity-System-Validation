@@ -54,7 +54,7 @@ BLE devices are scanned and RSSI values are captured in a rolling window. Logged
 - Repeat each test 3 times for statistical significance
 
 
-###BLE Test Setup Diagram
+### BLE Test Setup Diagram
 <img src="./ble.jpg" alt="RF Test Diagram" width="500"/>
 
 
